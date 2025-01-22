@@ -1,0 +1,10 @@
+# Upload data
+curl.exe -X POST -F "file=@data/sample_data.csv" http://localhost:8000/upload
+
+# Train model
+curl.exe -X POST http://localhost:8000/train
+
+# Make prediction
+curl.exe -X POST -H "Content-Type: application/json" `
+  -d '{\"Temperature\":90,\"Run_Time\":250}' `
+  http://localhost:8000/predict
